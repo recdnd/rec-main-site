@@ -366,16 +366,15 @@ button.link-button:hover {
 	  </div>
 		
     <div class="link-list">
-          <a class="link-button" href="https://spiral.ooo" target="_blank">⛏︎</a>
-          <a class="link-button" href="https://spirallab.org" target="_blank">/lab</a>
-          <a class="link-button" href="https://sus.church" target="_blank">/church</a>
-      <a class="link-button" href="https://x.com/recdungeons" target="_blank">.𝕏[軍田勇]</a>
-      <a class="link-button" href="https://archiveofourown.org/users/recdnd" target="_blank">ao3</a>
+          <a class="link-button" href="https://pf.rec.ooo" target="_blank">profile</a>
       <a class="link-button" href="https://x.com/recdnd" target="_blank">.𝕏[MAIN]</a>
+      <a class="link-button" href="https://git.rec.ooo" target="_blank">git</a>
+      <a class="link-button" href="https://core.rec.ooo" target="_blank">spiral-core</a>
       <a href="javascript:void(0)" class="link-button" onclick="toggleEmailModal()">/mailbox</a>
-      <a class="link-button" href="https://discord.gg/XsTmRs9RrG" target="_blank">/cord</a>
+      <a href="javascript:void(0)" class="link-button" onclick="toggleMiscModal()">/misc</a>
+      <a href="javascript:void(0)" class="link-button" onclick="toggleAltModal()">/alt</a>
     </div>
-		<a href="javascript:void(0)" class="link-button" onclick="toggleInvite()">../and_specials_for_you</a>
+		<a href="javascript:void(0)" class="link-button" onclick="toggleInvite()">..and_specials_for_you</a>
 		
 		
 	<div class="link-zone">
@@ -410,6 +409,20 @@ button.link-button:hover {
     
 		function toggleEmailModal() {
 		  const modal = document.getElementById("emailModal");
+		  const body = document.body;
+		  const isVisible = modal.style.display === "block";
+		  modal.style.display = isVisible ? "none" : "block";
+		  body.style.overflow = isVisible ? "auto" : "hidden"; // 只在 modal 開啟時隱藏滾動
+		}
+		function toggleAltModal() {
+		  const modal = document.getElementById("altModal");
+		  const body = document.body;
+		  const isVisible = modal.style.display === "block";
+		  modal.style.display = isVisible ? "none" : "block";
+		  body.style.overflow = isVisible ? "auto" : "hidden"; // 只在 modal 開啟時隱藏滾動
+		}
+		function toggleMiscModal() {
+		  const modal = document.getElementById("miscModal");
 		  const body = document.body;
 		  const isVisible = modal.style.display === "block";
 		  modal.style.display = isVisible ? "none" : "block";
@@ -477,10 +490,34 @@ function generateCode() {
 				  </div>
 
 <div class="email-list">
-  <a href="javascript:void(0)" onclick="copyEmailAndRedirect('rec@rec.ooo')"><code>rec@rec.ooo(primary)</code></a>
-  <a href="javascript:void(0)" onclick="copyEmailAndRedirect('admin@spiral.ooo')"><code>admin@spiral.ooo</code></a>
-  <a href="javascript:void(0)" onclick="copyEmailAndRedirect('recdnd@proton.me')"><code>recdnd@proton.me</code></a>
+  <a href="javascript:void(0)" onclick="copyEmailAndRedirect('rec@rec.ooo')"><code>r@rec.ooo(primary)</code></a>
   <a href="javascript:void(0)" onclick="copyEmailAndRedirect('recdungeons@gmail.com')"><code>recdungeons@gmail.com</code></a>
+</div>
+				</div>
+
+				<div class="email-modal" id="altModal" style="display: none;">
+				  <div class="email-modal-header">
+				    alt_links
+				    <span class="email-modal-close" onclick="toggleAltModal()">☒</span>
+				  </div>
+
+<div class="email-list">
+  <a href="https://x.com/recdungeons" target="_blank"><code>.𝕏[軍田勇]</code></a>
+  <a href="https://archiveofourown.org/users/recdnd" target="_blank"><code>ao3</code></a>
+  <a href="https://discord.gg/XsTmRs9RrG" target="_blank"><code>/cord</code></a>
+</div>
+				</div>
+
+				<div class="email-modal" id="miscModal" style="display: none;">
+				  <div class="email-modal-header">
+				    misc_links
+				    <span class="email-modal-close" onclick="toggleMiscModal()">☒</span>
+				  </div>
+
+<div class="email-list">
+  <a href="https://spiral.ooo" target="_blank" title="spiral playground"><code>spiral.ooo</code></a>
+  <a href="https://spirallab.org" target="_blank"><code>/lab</code></a>
+  <a href="https://spirallab.org/church" target="_blank"><code>/church</code></a>
 </div>
 				</div>
 
